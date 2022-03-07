@@ -7,7 +7,7 @@ find_package(LibClang REQUIRED)
 add_executable(tool tool/tool.cpp tool/tool.hpp)
 target_link_libraries(tool PRIVATE ${CLANG_LIBS})
 target_include_directories(tool PRIVATE ${CLANG_INCLUDEDIR})
-
+target_compile_features(tool PRIVATE cxx_std_17)
 macro(reflect FILE)
 set(tool_exec ${CMAKE_CURRENT_BINARY_DIR}/meta/tool)
 add_custom_command(
